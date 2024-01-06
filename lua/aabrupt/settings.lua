@@ -1,4 +1,3 @@
-
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
@@ -12,7 +11,7 @@ vim.o.timoutlen = 300
 
 vim.wo.number = true
 vim.wo.relativenumber = true
-vim.wo.signcolumn = 'no'
+vim.wo.signcolumn = 'yes'
 
 vim.o.undofile = true
 vim.o.clipboard = 'unnamedplus'

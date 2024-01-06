@@ -3,8 +3,7 @@ return {
     config = function()
         local wk = require('which-key')
         wk.register({
-            ['<leader>b'] = { name = '[B]uffer', _ = 'which_key_ignore' },
-            ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
+            ['<leader>h'] = { name = '[H]arpoon', _ = 'which_key_ignore' },
             ['<leader>l'] = { name = '[L]SP', _ = 'which_key_ignore' },
             ['<leader>m'] = { name = "[M]ode", _ = 'which_key_ignore' },
         })

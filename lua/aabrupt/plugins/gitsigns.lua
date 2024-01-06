@@ -14,17 +14,17 @@ return {
 
                 vim.keymap.set({ "n", "v" }, "<leader>gn", function()
                     if vim.wo.diff then
-                        return '<leader>gn'
+                        return ']c'
                     end
                     vim.schedule(function()
                         gs.next_hunk()
                     end)
                     return '<Ignore>'
-                end, { bufffer = bufnr, expr = true, desc = "Jump To [N]ext Hunk" })
+                end, { buffer = bufnr, expr = true, desc = "Jump To [N]ext Hunk" })
 
                 vim.keymap.set({ "n", "v" }, "<leader>gp", function()
                     if vim.wo.diff then
-                        return "<leader>gp"
+                        return "[c"
                     end
                     vim.schedule(function()
                         gs.prev_hunk()
@@ -55,6 +55,10 @@ return {
                 vim.keymap.set("n", "<leader>gD", function()
                     gs.diffthis "~"
                 end, { buffer = bufnr, desc = "Git [D]iff Against Last Commit" })
+
+                require("which-key").register({
+                    ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
+                })
             end
         })
     end
