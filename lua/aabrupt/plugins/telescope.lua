@@ -8,10 +8,26 @@ return {
             cond = function()
                 return vim.fn.executable "make" == 1
             end
-        }
+        },
+        "jonarrien/telescope-cmdline.nvim",
     },
     config = function()
         require('telescope').setup {
+            extensions = {
+                cmdline = {
+                    picker   = {
+                        layout_config = {
+                            width  = 120,
+                            height = 25,
+                        }
+                    },
+                    mappings = {
+                        complete      = '<Tab>',
+                        run_selection = '<C-CR>',
+                        run_input     = '<CR>',
+                    },
+                },
+            },
             defaults = {
                 mappings = {
                     i = {
@@ -23,6 +39,7 @@ return {
         }
 
         pcall(require('telescope').load_extension, 'fzf')
+        require("telescope").load_extension("cmdline")
 
         vim.keymap.set("n", "<leader>?", require('telescope.builtin').oldfiles, { desc = 'Find recent files' })
         vim.keymap.set("n", "<leader><space>", require('telescope.builtin').buffers,
@@ -32,6 +49,7 @@ return {
                 previewer = false,
             })
         end, { desc = '[/] Fuzzily search in current buffer' })
+        vim.keymap.set("n", ":", ':silent Telescope cmdline<CR>', {noremap = true, desc = "Telescope Command Util"})
 
         local function find_git_root()
             -- Use the current buffer's path as the starting point for the git search

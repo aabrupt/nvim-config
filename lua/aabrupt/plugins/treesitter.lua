@@ -35,6 +35,20 @@ return {
         }
 
         vim.treesitter.language.register("templ", "templ")
+
+        vim.filetype.add({
+            extension = {
+                mdx = "mdx"
+            }
+        })
+        treesitter_parser_config.mdx = {
+            install_info = {
+                url = "https://github.com/jlopezcur/tree-sitter-mdx.git",
+                files = {"src/parser.c"},
+                branch = "master",
+            }
+        }
+        vim.treesitter.language.register("mdx", "mdx")
     end
 
 }
