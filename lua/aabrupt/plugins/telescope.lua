@@ -49,7 +49,7 @@ return {
                 previewer = false,
             })
         end, { desc = '[/] Fuzzily search in current buffer' })
-        vim.keymap.set("n", ":", ':silent Telescope cmdline<CR>', {noremap = true, desc = "Telescope Command Util"})
+        vim.keymap.set("n", "<leader>mc", ':silent Telescope cmdline<CR>', {noremap = true, desc = "Telescope CmdLine"})
 
         local function find_git_root()
             -- Use the current buffer's path as the starting point for the git search
