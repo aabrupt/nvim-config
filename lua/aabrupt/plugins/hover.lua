@@ -9,12 +9,8 @@ return {
             preview_opts = {
                 border = "single",
             },
-            preview_window = false,
+            preview_window =true,
             title = false,
-            mouse_providers = {
-                "LSP",
-            },
-            mouse_delay = 1000,
         })
 
         vim.keymap.set("n", "K", hover.hover, {desc="Hover Symbol"})

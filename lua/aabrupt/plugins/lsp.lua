@@ -67,6 +67,7 @@ return {
         local on_attach = function(_, bufnr)
             local telescope = require("telescope.builtin")
 
+            -- Write
             vim.api.nvim_buf_create_user_command(bufnr, 'LspFormat', function(_)
                 vim.lsp.buf.format()
             end, { desc = "Format current buffer" })
@@ -75,6 +76,10 @@ return {
             vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, {buffer = bufnr, desc="Lsp [R]ename Symbol"})
             vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, {buffer = bufnr, desc="Lsp Code [A]ction"})
 
+            -- Help
+            vim.keymap.set("n", "<leader>lh", vim.lsp.buf.signature_help, {buffer = bufnr, desc="Signature [H]elp"})
+
+            -- Telescope
             vim.keymap.set('n', 'gd', telescope.lsp_definitions, {buffer = bufnr, desc="Goto Definition"})
             vim.keymap.set('n', 'gr', telescope.lsp_references, {buffer = bufnr, desc="Goto References"})
             vim.keymap.set('n', 'gI', telescope.lsp_implementations, {buffer = bufnr, desc="Goto Implementation"})

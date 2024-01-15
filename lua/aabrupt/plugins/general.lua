@@ -20,4 +20,7 @@ return {
     {'numToStr/Comment.nvim', config = function()
         require("Comment").setup()
     end},
+    {"echasnovski/mini.bufremove", config = function()
+        require("mini.bufremove").setup()
+    end}
 }
